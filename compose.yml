@@ -16,8 +16,8 @@ services:
       - "3306:3306"
     networks:
       appmysql-net:
-        aliases: 
-          - mysql         # Run on the network with this host name so that our Spring app can find it
+        aliases:
+          - mysql # Run on the network with this host name so that our Spring app can find it
 
 networks:
   appmysql-net:
