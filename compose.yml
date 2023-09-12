@@ -6,7 +6,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - MYSQL_HOST=mysql
+      # These are used in apllication.property to setup DB connection
+      - DB_HOST=mysql
+      - DB_DATABASE=template_db
+      - DB_USER=root
+      - DB_PASSWORD=pwd
     networks:
       - appmysql-net
 
@@ -14,10 +18,15 @@ services:
     build: ./mysql
     ports:
       - "3306:3306"
+    environment:
+      # Mysql docker image env vars
+      - MYSQL_ROOT_PASSWORD=pwd
+      - MYSQL_DATABASE=template_db
     networks:
       appmysql-net:
         aliases:
-          - mysql # Run on the network with this host name so that our Spring app can find it
+          # Run on the network with this host name so that our Spring app can find it
+          - mysql 
 
 networks:
   appmysql-net:
