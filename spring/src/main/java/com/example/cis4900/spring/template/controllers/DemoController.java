@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/demo")
+@RequestMapping(path = "/demo")
 public class DemoController {
 
-    @GetMapping("/")
+    @GetMapping()
     public String getDemo() {
         return "demo!";
     }
