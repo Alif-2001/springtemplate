@@ -8,7 +8,7 @@ public interface NotesService {
 
     public Note getNote(Integer id);
     
-    public String updateNote(Integer id, String text);
+    public String updateNote(Note updatedNote);
 
     public String deleteNote(Integer id);
 

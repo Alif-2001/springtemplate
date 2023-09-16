@@ -27,12 +27,9 @@ public class NotesServiceImpl implements NotesService {
     }
 
     @Override
-    public String updateNote(Integer id, String text) {
+    public String updateNote(Note updatedNote) {
         try {
-            Note note = new Note();
-            note.setId(id);
-            note.setText(text);
-            notesDao.save(note);
+            notesDao.save(updatedNote);
         } catch (Exception exception) {
             return exception.getMessage();
         }

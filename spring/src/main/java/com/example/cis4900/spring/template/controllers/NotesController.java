@@ -6,6 +6,7 @@ import com.example.cis4900.spring.template.notes.models.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,17 +31,17 @@ public class NotesController {
     }
 
     @GetMapping("/get/{id}")
-    private @ResponseBody Note getNote(@RequestParam Integer id) {
+    private @ResponseBody Note getNote(@PathVariable Integer id) {
         return notesService.getNote(id);
     }
 
     @PutMapping("/update")
-    private @ResponseBody String updateNote(@RequestParam Integer id, @RequestParam String text) {
-        return notesService.updateNote(id, text);
+    private @ResponseBody String updateNote(@RequestBody Note updatedNote) {
+        return notesService.updateNote(updatedNote);
     }
 
-    @DeleteMapping("/delete")
-    private @ResponseBody String deleteNote(@RequestParam Integer id) {
+    @DeleteMapping("/delete/{id}")
+    private @ResponseBody String deleteNote(@PathVariable Integer id) {
         return notesService.deleteNote(id);
     }
 
