@@ -39,7 +39,7 @@ jobs:
         name: Build mysql db and push
         uses: docker/build-push-action@v5
         with:
-        context: ./mysql
+          context: ./mysql
           file: .Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:latest
