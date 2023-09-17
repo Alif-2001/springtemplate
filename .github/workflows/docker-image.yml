@@ -31,7 +31,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./spring
-          file: .Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:latest
 
@@ -40,7 +39,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./mysql
-          file: .Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:latest
 
