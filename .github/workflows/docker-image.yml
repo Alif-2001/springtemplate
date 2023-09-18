@@ -32,7 +32,7 @@ jobs:
         with:
           context: ./spring
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:app
 
       -
         name: Build mysql db and push
@@ -40,7 +40,7 @@ jobs:
         with:
           context: ./mysql
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:db
 
 
       
