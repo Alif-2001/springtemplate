@@ -32,7 +32,7 @@ jobs:
         with:
           context: ./spring
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:app
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:spring
 
       -
         name: Build mysql db and push
@@ -40,7 +40,15 @@ jobs:
         with:
           context: ./mysql
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:db
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:mysql
+      
+      -
+        name: Build react app and push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./react
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/springtemplate:react
 
 
       
