@@ -1,5 +1,5 @@
 FROM eclipse-temurin:17-jdk-jammy as builder
-WORKDIR /opt/app
+WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN ./mvnw dependency:go-offline
@@ -7,7 +7,7 @@ COPY ./src ./src
 RUN ./mvnw clean install
 
 FROM eclipse-temurin:17-jre-jammy
-WORKDIR /opt/app
+WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /opt/app/target/*.jar /opt/app/*.jar
-ENTRYPOINT ["java", "-jar", "/opt/app/*.jar" ]
+COPY --from=builder /app/target/*.jar /app/*.jar
+ENTRYPOINT ["java", "-jar", "/app/*.jar" ]
